@@ -1,3 +1,5 @@
+<h1>Private Messaging System (PMS)</h1>
+
 <form [formGroup] = "chatForm">
 	<div class="form-group">
 		<label for="title">Username</label>
@@ -25,7 +27,9 @@
 	</div>
 </form>
 
-<label for="messages">Messages</label>
+<H3>	
+	<label for="messages">Messages</label>
+</H3>
 <div *ngFor = "let m of messages">
 	<code>{{m.from}} </code>
 	<span>{{m.message}}</span>

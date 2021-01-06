@@ -56,9 +56,6 @@ export class AppComponent {
       )
     }
     this.connected = !this.connected
-
-
-
   }
 
   send(){

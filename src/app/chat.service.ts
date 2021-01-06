@@ -26,7 +26,15 @@ export class ChatService{
 
         const params = new HttpParams().set('name', name)
 
-        this.sock = new WebSocket(`ws://localhost:3000/chat?${params.toString()}`)
+        // this.sock = new WebSocket(`ws://localhost:3000/chat?${params.toString()}`)
+        // this.sock = new WebSocket(`/chat?${params.toString()}`)
+
+        // set ws protocol when using http and wss when using https
+        const protocol = window.location.protocol.replace('http', 'ws');
+        // get location host
+        const host = window.location.host;
+        // websocket instantiation
+        this.sock = new WebSocket(`${protocol}//${host}/chat?${params.toString()}`);
 
         this.sock.onmessage = (payload: MessageEvent) => {
             const chat = JSON.parse(payload.data) as ChatMessage
@@ -45,7 +53,6 @@ export class ChatService{
     async leave(){
 
         this.sock.send('has left the building :(')
-        console.info('left')
         await this.delay(1)
         if (this.sock != null){
             this.sock.close()
