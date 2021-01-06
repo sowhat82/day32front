@@ -42,7 +42,7 @@ export class AppComponent {
     if (this.chatForm.get('username').disabled){
       this.chatForm.get('username').enable()
       this.chatSvc.leave()
-      await this.chatSvc.delay(1)
+      await this.chatSvc.delay(1000)
       this.event$.unsubscribe()
       this.event$ = null
     }

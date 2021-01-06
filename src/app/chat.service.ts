@@ -53,7 +53,7 @@ export class ChatService{
     async leave(){
 
         this.sock.send('has left the building :(')
-        await this.delay(1)
+        await this.delay(1000)
         if (this.sock != null){
             this.sock.close()
             this.sock = null
