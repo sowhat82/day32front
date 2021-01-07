@@ -9,7 +9,7 @@ import { ChatMessage, ChatService } from './chat.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'PMS';
   connected = false;
   chatForm : FormGroup
   messages: ChatMessage[] = []
